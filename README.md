@@ -1,3 +1,12 @@
+# The Polifonia Registry
+
+The Polifonia registry of musical resources on the Web is https://musow.kmi.open.ac.uk/. 
+
+This repository hosts the data of the registry.
+
+Both the registry and features for crowdsourcing resources to be included in the musoW registry are currently under development (see issues).
+
+====
 
 # musoW: Musical Data on the web
 
