@@ -1,0 +1,138 @@
+Dimension,Description,RDF predicate,Revised predicate,Comment,Examples,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value,Possible Value
+Person,Who edited the record,http://www.w3.org/2004/02/skos/core#note,http://www.w3.org/ns/prov#wasGeneratedBy,"MW: https://schema.org/editor 
+MD: There is also https://schema.org/sdPublisher that seems to fit. 
+Every record will have its own named graph that can be annotated. Currently we use PROV.wasGeneratedBy for data about the record itself and the schema can be more sophisticated.",MD,,,,,,,,,,,,,,,,,
+ID: Resource name,An identifier of the described project/resource,http://www.w3.org/2000/01/rdf-schema#label,https://schema.org/name,,The Music Ontology,,,,,,,,,,,,,,,,,
+ID: URL,A URI of the description of the project/resource,http://xmlns.com/foaf/0.1/homepage,https://schema.org/mainEntityOfPage,,http://www.example.org,,,,,,,,,,,,,,,,,
+Description,"A brief description addressing contents, amount of items, 
+and whether there are information about notated music 
+(e.g. digitzed scores, MEI/XML, audio aligned to scores)",http://purl.org/dc/terms/description,https://schema.org/description,,"aggregator of repositories, digitized scores...",,,,,,,,,,,,,,,,,
+Creator (formerly Project),The name of the project or person responsible for the described resource,http://purl.org/cerif/frapo/isOutputOf,https://schema.org/creator,"MW: association of the property is with film/TV producers, but the actual definition fits quite nicely with the meaning of the property
+conflict with defining who published the metadata. Would these be the same?
+conflict with defining who created the metadata. Would these be the same?
+defined as the organisation on whose behalf the creator was working
+MD: I saw in the data the value of this property is ambiguous (sometimes a container data catalog, sometimes a research centre, or the name of the resource itself. To be discussed
+https://schema.org/producer
+https://schema.org/publisher
+https://schema.org/creator
+https://schema.org/sourceOrganisation",Digital edition of Bach's scores,,,,,,,,,,,,,,,,,
+Search Criterion,"The criterion used to retrieve the resource (e.g. google keyword, 
+the name of a wider project, funding institution, name of a university)",http://purl.org/spar/fabio/hasSubjectTerm,TO BE REMOVED,"MD: this field records how the resource was found, e.g. on google. Possibly to be removed","Mellon Foundation grant, H2020, Europeana related project, Google keywords",,,,,,,,,,,,,,,,,
+Research Questions,Describe claimed aims and research questions if available,http://dbpedia.org/ontology/projectObjective,TO BE REMOVED,"MW: given the wish for a flat model, this property is problematic, as it does not refer to the objective of the resource, but to objective of the project. Why is this of interest? Is the information available via the URL? Could the information otherwise be added in to the description?
+MD: can be removed",,,,,,,,,,,,,,,,,,
+Item:Resource example,An example of existing rescource part of the described project,http://www.w3.org/2004/02/skos/core#example,https://schema.org/workExample,,http://www.example.org/resource1,,,,,,,,,,,,,,,,,
+Reused resource,"Name of reused resources/tools by the described projects 
+(please reuse a term from column ID:Resource name)",http://www.w3.org/2004/02/skos/core#related,https://schema.org/isBasedOn,"MW: https://schema.org/isBasedOn is perhaps too specific
+MW: https://schema.org/isRelatedTo is a bit too generic -- MD: possibly the best option. Its a crossreference to resources in the same dataset which are used OR are reused by the one at hand","Verovio, OMR",,,,,,,,,,,,,,,,,
+Resource type,The type of described resource,http://purl.org/spar/datacite/hasGeneralResourceType,MERGED WITH 12 and 13,merged with 12 and 13,"Dataset, Repository",Dataset,Repository,Service,Software,Schema,Catalogue,Digital Library,Ontology,Digital edition,Format,Project,,,,,,
+Type: Collection,Identify the resource as an aggregator of resources,http://www.w3.org/1999/02/22-rdf-syntax-ns#type,https://schema.org/additionalType,Controlled vocabulary: Collection ; Specification ; Dataset	Repository	Service	Software	Schema	Catalogue	Digital Library	Ontology	Digital edition	Format	Project,Y/N,,,,,,,,,,,,,,,,,
+Type: Specification,"Identify the resource as a specification (format, schema, ontology)",http://www.w3.org/1999/02/22-rdf-syntax-ns#type,https://schema.org/additionalType,,"Ontology, Schemas, Notation languages, Specifications ...",,,,,,,,,,,,,,,,,
+Category,,,https://schema.org/category ,Controlled vocabulary: Symbolic; Metadata; Media,,,,,,,,,,,,,,,,,,
+Purpose: Learning,The purpose underlying the creation of the resource is learning how to play an instrument,http://www.w3.org/ns/oa#hasPurpose,https://schema.org/educationalUse,"Controlled vocabulary: Research ; Learning
+
+MW: we could consider using https://schema.org/audience to cover the information in Purpose: Learning and Purpose: Research, by defining research audiences and learning audiences.
+MD: I like the audience solution better!",Y/N,,,,,,,,,,,,,,,,,
+Purpose: Research,"The purpose underlying the creation of the resource is research 
+on music related topics. Specific terms may be provided 
+in Task/Situation column",http://www.w3.org/ns/oa#hasPurpose,MERGED WITH 15,"merged with 15
+
+we could consider using https://schema.org/audience to cover the information in Purpose: Learning and Purpose: Research, by defining research audiences and learning audiences","Musicology
+Music Psychology
+History of music
+Music Education
+Ethnomusicology
+Sociology of music
+Music theory
+Cognitive science
+Music production
+Legal",,,,,,,,,,,,,,,,,
+Target audience,,http://purl.org/dc/terms/audience,https://schema.org/audience,"if we were to also use audience for the Purpose properties, then we could use a hierarchy here to allow indicating both details and general groups","scholars, practitioners, businesses, artists, ...",,,,,,,,,,,,,,,,,
+Scope: Temporal,Identify whether resources in the collection are grouped by a shared period of time,http://www.w3.org/ns/oa#hasScope,https://schema.org/about,"MD: these are the famous boolean values in the dataset. 
+Since we want to preserve this information, we'd need one property only and a controlled vocabulary for values (temporal, geographical ....). 
+In the extension of the data model, we can add these new properties.
+
+Controlled vocabulary: temporal; geographical ; genre; composer","60s, 1600, Ancient greek",Y,N,,,,,,,,,,,,,,,
+Scope: Geographical,Identify whether resources in the collection are grouped by a shared place/country,http://www.w3.org/ns/oa#hasScope,MERGED WITH 18,,"European, Asian, Liverpool",Y,N,,,,,,,,,,,,,,,
+Scope: Genre,Identify whether resources in the collection are grouped by a shared genre of music,http://www.w3.org/ns/oa#hasScope,MERGED WITH 18,,"Prog, Folk, Jazz, ...",Y,N,,,,,,,,,,,,,,,
+Scope: Artist,Identify whether resources in the collection are grouped by a single artist,http://www.w3.org/ns/oa#hasScope,MERGED WITH 18,"not so specific, but if we use specific properties for the other scopes then we can leave this for Artist alone
+intended for fictional persons","Chopin, Beatles ...",Y,N,,,,,,,,,,,,,,,
+Temporal coverage (new),,,https://schema.org/temporalCoverage,,,,,,,,,,,,,,,,,,,
+Spatial coverage (new),,,https://schema.org/spatialCoverage,,,,,,,,,,,,,,,,,,,
+Genre (new),,,https://schema.org/genre,,,,,,,,,,,,,,,,,,,
+Composers (new),,,https://schema.org/character,,,,,,,,,,,,,,,,,,,
+Scope: Formats,Identify main formats of described resources,http://data.open.ac.uk/mudow/ontology/scope/format,https://schema.org/encodingFormat,Controlled vocabulary: from data,"MIDI, MP3, PDF, OSC",,,,,,,,,,,,,,,,,
+Scope: MO type,Provide a term from Music Ontology to decribe main resources,http://dbpedia.org/ontology/type,https://schema.org/mainEntity,"Controlled vocabulary:
+FROM MO: AnalogSignal        MusicalWork        Signal        Record        Recording        Track        Libretto        Score        Performance        MusicArtist        Instrument        MusicalManifestation; 
+NEW: Tabs        Audio        Score        Libretto        Musical resource        Instrument        Listening experience        Publisher",Controlled vocabulary,AnalogSignal,MusicalWork,Signal,Record,Recording,Track,Libretto,Score,Performance,MusicArtist,Instrument,MusicalManifestation,,,,,
+Scope: Object type,A not controlled vocabulary to specify the type of object ,http://dbpedia.org/ontology/type,MERGED WITH 27,"MD: this field is ambiguous, it refers to the type of resources included. 
+Could be replaced with e.g. https://schema.org/mainEntity ","Tabs, Audio, Score, Libretto, ...",Tabs,Audio,Score,Libretto,Musical resource,Instrument,Listening experience,Publisher,,,,,,,,,
+Access: Public,Define whether the resource is accessible or there's just a claim of future works,http://purl.org/dc/terms/accessRights,MERGED WITH 31,"MW: https://schema.org/license this information would be aggregated in license with other information
+MW: free text",Y/N,Y,N,,,,,,,,,,,,,,,
+Access: Free/Charged,Specify if the resource is accessible by charging users or not,http://data.open.ac.uk/mudow/ontology/access/type,MERGED WITH 31,"MW: this information would be aggregated in license with other information
+free text <--- MD: agree!",Free/Charged,Free,Charged,Free and Charged,,,,,,,,,,,,,,
+Access: license,"When provided specify the license for reusing the resource. 
+If not found, but resources possibly fall under public domain 
+(e.g. music of 18th century, research project funded by universities) 
+just fill with ""Open Access""",http://purl.org/dc/terms/license,https://schema.org/license,Controlled vocabulary: Public ; Free of charge ; Charge ; not specified ; [all cc licenses],"CC-by,CC0, Open Access ...",,,,,,,,,,,,,,,,,
+Format: Interoperable?,"Specify if the resource is accessible by means of open source tools 
+or it requires proprietary softwares",http://schema.org/featureList,http://schema.org/featureList,Controlled vocabulary: following fields,Standard:Y; Properietary: N,,,,,,,,,,,,,,,,,
+Interface: Human consumption?,"Define whether the resources may be accessed in a user-friendly interface
+ or they are meant to be consumed by obly machines",http://schema.org/featureList,MERGED WITH 32,,Y/N,Y,N,,,,,,,,,,,,,,,
+Affordance: Is playable?,Identify whether the main resource is provided in a playable format,http://schema.org/featureList,MERGED WITH 32,"MW: Instead of including this in the model, we could determine this on the fly by checking formats
+MD: not sure, because users may not include that detail (formats) but will happily tick a box for ""is playable""","MIDI:Y, Lyrics:N",,,,,,,,,,,,,,,,,
+Symbolic: Machine readable?,Specify if data about symbolic notated music is machine readable,http://schema.org/featureList,MERGED WITH 32,,Y/N,Y,N,,,,,,,,,,,,,,,
+Interface: API?,Specify whether an API is provided to access data or the main resource is an API,http://schema.org/featureList,MERGED WITH 32,,Y/N,Y,N,,,,,,,,,,,,,,,
+Interface: SPARQL endpoint?,"Specify if a SPARQL endpoint is provided. When the described resource
+ is a RDF dataset the answer may be either Y or N. 
+When the described resource is an ontology, a software 
+or a different kind of data (i.e. not RDF data), than it's N/A (not applicable)",http://schema.org/featureList,MERGED WITH 32,,Y/N N/A,Y,N,N/A,,,,,,,,,,,,,,
+Interface: Is it queryable?,"Specify if the collection of resources can be queried 
+by means of an interface",http://schema.org/featureList,MERGED WITH 32,,Y/N N/A,Y,N,N/A,,,,,,,,,,,,,,
+Interface: Browsable?,Specify if the collection can be browsed by means of an interface,http://schema.org/featureList,MERGED WITH 32,,"Y/N, N/A",Y,N,N/A,,,,,,,,,,,,,,
+Interface: Data Dump?,Specify if resources can be downloaded,http://schema.org/featureList,MERGED WITH 32,"
+property would then be derived on the fly by checking if a downloadUrl exists",Y/N N/A,Y,N,N/A,,,,,,,,,,,,,,
+SPARQL endpoint URI,Provide the URI of the SPARQL endpoint of the resource,http://rdfs.org/ns/void#sparqlEndpoint,http://rdfs.org/ns/void#sparqlEndpoint,"https://schema.org/url MW:very generic
+https://schema.org/contentUrl MW: this actually should point to a file, not an endpoint
+https://schema.org/actionPlatform MW:meant for an EntryPoint to define where an action can be performed
+MD: mmm, tempted to stick on void",http://virtuoso-midi.amp.ops.labs.vu.nl/sparql,,,,,,,,,,,,,,,,,
+Download URL (new),The URL to download data,,https://schema.org/downloadUrl,,,,,,,,,,,,,,,,,,,
+Web API (new),,,https://schema.org/serviceUrl ,,,,,,,,,,,,,,,,,,,
+Collection: Size,"Number of items, e.g. songs, MIDI songs, RDF triples. (consider N/A for ontologies and sofwares)",http://purl.org/dc/terms/extent,https://schema.org/collectionSize,,"Y/N, N/A, UNKNOWN",<10,<100,<1000,<10000,<100000,<1M,>1M,N/A,UNKNOWN,,,,,,,,
+Data size,Dimension of the collection (consider N/A for ontologies and sofwares),http://www.w3.org/ns/dcat#byteSize,https://schema.org/contentSize,"possibly requires unit conversion (but note, both fields are text so would need to parse)","Mb,Gb, UNKNOWN",~Mb,~Gb,~Tb,~Pb,~Kb,,,N/A,UNKNOWN,,,,,,,,
+Feature: Melody,"Specifiy whether the melody features (the main theme of a song, pitch 
+and duration, cadence) of a score/audio track are represented as structured data",http://xmlns.com/foaf/0.1/primaryTopic,https://schema.org/keywords,"MW: broader
+MD: https://schema.org/variableMeasured the definition here would be a bit strethced but maybe is more precise than keywords?
+
+Controlled vocabulary: Melody ; Harmony ; Lyrics ; Rhythm ; Timbre ; Contour/Shape ; Structure ; Bibliographic data",Y/N,Y,N,,,,,,,,,,,,,,,
+Feature: Harmony,"Specifiy whether the armony features (chords) 
+of a score/audio track are represented as structured data",http://xmlns.com/foaf/0.1/primaryTopic,MERGED WITH 45,broader,Y/N,Y,N,,,,,,,,,,,,,,,
+Feature: Lyrics,Specifiy whether lyrics of a song are represented as structured data,http://xmlns.com/foaf/0.1/primaryTopic,MERGED WITH 45,broader,Y/N,Y,N,,,,,,,,,,,,,,,
+Feature: Rhythm,"Specifiy whether the rhythm features (regular successions of patterns,
+duration and tempo) of a score/audio track are represented as structured data",http://xmlns.com/foaf/0.1/primaryTopic,MERGED WITH 45,broader,Y/N,Y,N,,,,,,,,,,,,,,,
+Feature: Timbre,"Specifiy whether the timbre features (tone of voices, instruments) 
+of a audio track are represented as structured data",http://xmlns.com/foaf/0.1/primaryTopic,MERGED WITH 45,broader,Y/N,Y,N,,,,,,,,,,,,,,,
+Feature: Contour/Shape,"Specifiy whether the contour features (change of pitches over time and its shape/curve) 
+of a audio track are represented as structured data",http://xmlns.com/foaf/0.1/primaryTopic,MERGED WITH 45,broader,Y/N,Y,N,,,,,,,,,,,,,,,
+Feature: Structure,"Specifiy whether the different parts of a song (Intro/Verse/Chorus) 
+are represented as structured data",http://xmlns.com/foaf/0.1/primaryTopic,MERGED WITH 45,broader,Y/N,Y,N,,,,,,,,,,,,,,,
+Feature: Descriptive Metadata,"publication year, artist, movement...",http://xmlns.com/foaf/0.1/primaryTopic,MERGED WITH 45,broader,Y/N,Y,N,,,,,,,,,,,,,,,
+Situation/Task,"Identify main purposes of the described resources as a task or a situation 
+wherein results of the project may be exploited by users",http://data.open.ac.uk/mudow/ontology/situation/task,https://schema.org/specialty ,"MW: https://schema.org/keywords broader
+MW: https://schema.org/potentialAction has Action as range, which is quite specifically defined
+MD: I found specialty","music production, 
+music information retrieval, 
+music learning, 
+music listening, 
+read, entertain, study, reviewing, 
+music selling (vague on purpose),
+music annotation,
+genetic studies",,,,,,,,,,,,,,,,,
+Add new here,,,,,,,,,,,,,,,,,,,,,,
+Distribution (new),Specify multiple distribution types,,UNCLEAR,MD: maybe this one overlaps with Download URL,,,,,,,,,,,,,,,,,,
+Publisher (new),who published the resource description,,https://schema.org/publisher,"this information is stored in github
+MD: how is this different from row 1 (person)? you mean Polifonia is the publisher?",,,,,,,,,,,,,,,,,,
+Contributor (new),who contributed to the resource description,,prov.wasInfluencedBy,graph annotation,,,,,,,,,,,,,,,,,,
+Date published (new),when was the resource description published,,prov.generatedAtTime,graph annotation,,,,,,,,,,,,,,,,,,
+Date modified (new),when was the resource description modified,,prov.generatedAtTime,graph annotation,,,,,,,,,,,,,,,,,,
+Indication of FAIR and/or 5* Linked data status?,,,UNCLEAR,MD: maybe we can use other fields to automatically define it,,,,,,,,,,,,,,,,,,
+,,,,NOTE: could look into using this for vague dates http://www.loc.gov/standards/datetime/ ,,,,,,,,,,,,,,,,,,
